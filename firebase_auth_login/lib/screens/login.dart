@@ -20,18 +20,7 @@ class AuthPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 40),
-                  child: FittedBox(
-                    fit: BoxFit.contain,
-                    child: CircleAvatar(
-                      backgroundImage:
-                          NetworkImage("https://picsum.photos/200"),
-                    ),
-                  ),
-                ),
-              ),
+              _logoImage,
               Stack(
                 children: <Widget>[
                   _inputForm(size),
@@ -52,16 +41,38 @@ class AuthPage extends StatelessWidget {
     );
   }
 
+  Widget get _logoImage => Expanded(
+        child: Padding(
+          padding: const EdgeInsets.only(top: 40, left: 24, right: 24),
+          child: FittedBox(
+            fit: BoxFit.contain,
+            child: CircleAvatar(
+              backgroundImage: NetworkImage("https://picsum.photos/200"),
+            ),
+          ),
+        ),
+      );
+
   Widget _authButton(Size size) => Positioned(
         left: size.width * 0.1,
         right: size.width * 0.1,
         bottom: 0,
-        child: RaisedButton(
-            child: Text("login"),
-            color: Colors.blue,
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-            onPressed: () {}),
+        child: SizedBox(
+          height: 50,
+          child: RaisedButton(
+              child: Text(
+                "Login",
+                style: TextStyle(fontSize: 20, color: Colors.white),
+              ),
+              color: Colors.blue,
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(25)),
+              onPressed: () {
+                if (_formkey.currentState.validate()) {
+                  print(_emailController.text.toString());
+                }
+              }),
+        ),
       );
 
   Widget _inputForm(Size size) {
