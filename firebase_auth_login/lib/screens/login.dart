@@ -20,26 +20,26 @@ class AuthPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
-              Container(
-                width: 200,
-                height: 200,
-                color: Colors.blue,
+              Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 40),
+                  child: FittedBox(
+                    fit: BoxFit.contain,
+                    child: CircleAvatar(
+                      backgroundImage:
+                          NetworkImage("https://picsum.photos/200"),
+                    ),
+                  ),
+                ),
               ),
               Stack(
                 children: <Widget>[
                   _inputForm(size),
-                  Positioned(
-                    left: size.width * 0.1,
-                    right: size.width * 0.1,
-                    bottom: 0,
-                    child: RaisedButton(
-                        child: Text("login"),
-                        color: Colors.blue,
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15)),
-                        onPressed: null),
-                  )
+                  _authButton(size),
                 ],
+              ),
+              Container(
+                height: size.height * 0.1,
               ),
               Text("Don't Have an Account? Create One"),
               Container(
@@ -51,6 +51,18 @@ class AuthPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _authButton(Size size) => Positioned(
+        left: size.width * 0.1,
+        right: size.width * 0.1,
+        bottom: 0,
+        child: RaisedButton(
+            child: Text("login"),
+            color: Colors.blue,
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+            onPressed: () {}),
+      );
 
   Widget _inputForm(Size size) {
     return Padding(
