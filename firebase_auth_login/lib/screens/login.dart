@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_login/data/join_or_login.dart';
 import 'package:firebase_auth_login/helper/login_background.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,34 @@ class AuthPage extends StatelessWidget {
     );
   }
 
+  void _register(BuildContext context) async {
+    final AuthResult result = await FirebaseAuth.instance
+        .createUserWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+    final FirebaseUser user = result.user;
+
+    if (user == null) {
+      final snackBar = SnackBar(
+        content: Text("Please try again later."),
+      );
+      Scaffold.of(context).showSnackBar(snackBar);
+    }
+  }
+
+  void _login(BuildContext context) async {
+    final AuthResult result = await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+            email: _emailController.text, password: _passwordController.text);
+    final FirebaseUser user = result.user;
+
+    if (user == null) {
+      final snackBar = SnackBar(
+        content: Text("Please try again later."),
+      );
+      Scaffold.of(context).showSnackBar(snackBar);
+    }
+  }
+
   Widget get _logoImage => Expanded(
         child: Padding(
           padding: const EdgeInsets.only(top: 40, left: 24, right: 24),
@@ -87,7 +116,7 @@ class AuthPage extends StatelessWidget {
                     borderRadius: BorderRadius.circular(25)),
                 onPressed: () {
                   if (_formkey.currentState.validate()) {
-                    print(_emailController.text.toString());
+                    joinOrLogin.isJoin ? _register(context) : _login(context);
                   }
                 }),
           ),
