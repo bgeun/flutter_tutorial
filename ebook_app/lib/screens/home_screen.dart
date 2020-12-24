@@ -91,6 +91,7 @@ class HomeScreen extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(left: 24),
                               child: RichText(
+                                maxLines: 2,
                                 text: TextSpan(
                                   style: TextStyle(
                                     color: kBlackColor,
@@ -115,11 +116,14 @@ class HomeScreen extends StatelessWidget {
                             Spacer(),
                             Row(
                               children: <Widget>[
-                                Container(
-                                  width: 101,
-                                  padding: EdgeInsets.symmetric(vertical: 10),
-                                  alignment: Alignment.center,
-                                  child: Text("Details"),
+                                GestureDetector(
+                                  onTap: () {},
+                                  child: Container(
+                                    width: 101,
+                                    padding: EdgeInsets.symmetric(vertical: 10),
+                                    alignment: Alignment.center,
+                                    child: Text("Details"),
+                                  ),
                                 ),
                                 Expanded(
                                   child: TwoSideRoundedButton(
