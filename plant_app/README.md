@@ -2,6 +2,11 @@
 
 A new Flutter project.
 
+### 1. initial scrren
+
+![initial](![image](https://user-images.githubusercontent.com/59638467/103507931-9583a300-4ea3-11eb-9950-c515fcf14a1d.png)
+)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
