@@ -4,8 +4,9 @@ A new Flutter project.
 
 ### 1. initial scrren
 
-![image](https://user-images.githubusercontent.com/59638467/103507931-9583a300-4ea3-11eb-9950-c515fcf14a1d.png,), width = 300
-
+<div>
+<img width = "300" src="https://user-images.githubusercontent.com/59638467/103507931-9583a300-4ea3-11eb-9950-c515fcf14a1d.png">
+<div>
 
 ## Getting Started
 
