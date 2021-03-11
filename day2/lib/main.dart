@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('$_counter',
                 style: TextStyle(
                     fontSize: _counter.toDouble() + 14,
-                    color: _counter < 20 ? Colors.blue : Colors.red)),
+                    color: _counter < 10 ? Colors.blue : Colors.red)),
             Text(
               '아래 버튼을 눌러주세요.',
             ),
