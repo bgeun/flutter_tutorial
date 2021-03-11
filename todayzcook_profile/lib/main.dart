@@ -5,10 +5,12 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Todayzcook',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -20,7 +22,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
-
   final String title;
 
   @override
@@ -36,12 +37,6 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  void _decrementCounter() {
-    setState(() {
-      _counter--;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,35 +47,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('$_counter',
-                style: TextStyle(
-                    fontSize: _counter.toDouble() + 14,
-                    color: _counter < 20 ? Colors.blue : Colors.red)),
             Text(
-              '아래 버튼을 눌러주세요.',
+              'You have pushed the button this many times:',
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                FlatButton(
-                    color: Colors.red,
-                    onPressed: () => (_incrementCounter()),
-                    child: Text(
-                      '증가',
-                      style: TextStyle(color: Colors.white),
-                    )),
-                FlatButton(
-                    color: Colors.blue,
-                    onPressed: () => (_decrementCounter()),
-                    child: Text(
-                      '감소',
-                      style: TextStyle(color: Colors.white),
-                    )),
-              ],
-            )
+            Text(
+              '$_counter',
+              style: Theme.of(context).textTheme.headline4,
+            ),
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
