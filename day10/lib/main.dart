@@ -50,12 +50,14 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text('$_counter',
-                style: TextStyle(
-                    fontSize: _counter.toDouble() + 14,
-                    color: _counter < 20 ? Colors.blue : Colors.red)),
+            Text(
+              '$_counter',
+              style: TextStyle(
+                  fontSize: _counter.toDouble() + 15,
+                  color: _counter > 10 ? Colors.red : Colors.blue),
+            ),
             Text(
               '아래 버튼을 눌러주세요.',
             ),
@@ -63,19 +65,21 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FlatButton(
-                    color: Colors.red,
-                    onPressed: () => (_incrementCounter()),
-                    child: Text(
-                      '증가',
-                      style: TextStyle(color: Colors.white),
-                    )),
+                  color: Colors.red,
+                  onPressed: () => (_incrementCounter()),
+                  child: Text(
+                    '증가',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
                 FlatButton(
-                    color: Colors.blue,
-                    onPressed: () => (_decrementCounter()),
-                    child: Text(
-                      '감소',
-                      style: TextStyle(color: Colors.white),
-                    )),
+                  color: Colors.blue,
+                  onPressed: () => (_decrementCounter()),
+                  child: Text(
+                    '감소',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             )
           ],
