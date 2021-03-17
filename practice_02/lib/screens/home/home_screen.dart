@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:practice_01/components/body.dart';
+import 'package:practice_02/components/my_bottom_nav_bar.dart';
+import 'package:practice_02/screens/home/components/body.dart';
+import 'package:practice_02/constants.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -8,6 +10,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: buildAppBar(),
       body: Body(),
+      bottomNavigationBar: MyBottomNavBar(),
     );
   }
 
