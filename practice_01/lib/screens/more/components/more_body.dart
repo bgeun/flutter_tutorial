@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:practice_01/constants.dart';
 
 class MoreBody extends StatelessWidget {
   @override
@@ -12,6 +11,9 @@ class MoreBody extends StatelessWidget {
           "Geun's closet",
         ),
         centerTitle: true,
+      ),
+      body: Column(
+        children: <Widget>[],
       ),
     );
   }
