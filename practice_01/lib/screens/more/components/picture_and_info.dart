@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:practice_01/screens/details/details_screen.dart';
 
 import '../../../constants.dart';
 
@@ -25,9 +26,19 @@ class PictureAndInfo extends StatelessWidget {
       width: size.width * 0.4,
       child: Column(
         children: <Widget>[
-          Image.asset(
-            image,
-            height: size.height * 0.17,
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DetailsScreen(),
+                ),
+              );
+            },
+            child: Image.asset(
+              image,
+              height: size.height * 0.17,
+            ),
           ),
           Container(
             height: size.width * 0.172,
