@@ -10,10 +10,12 @@ class PictureAndInfo extends StatelessWidget {
     this.name,
     this.brand,
     this.price,
+    this.press,
   }) : super(key: key);
 
   final String image, name, brand;
   final double price;
+  final Function press;
 
   @override
   Widget build(BuildContext context) {
@@ -27,14 +29,7 @@ class PictureAndInfo extends StatelessWidget {
       child: Column(
         children: <Widget>[
           GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => DetailsScreen(),
-                ),
-              );
-            },
+            onTap: press,
             child: Image.asset(
               image,
               height: size.height * 0.17,

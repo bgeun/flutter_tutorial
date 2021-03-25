@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:practice_01/constants.dart';
+import 'package:practice_01/screens/home/home_screen.dart';
 import 'package:practice_01/screens/more/components/picture_and_info.dart';
+import 'package:practice_01/screens/more/components/shoes/jordan1.dart';
+import '../more_screen.dart';
 import 'brand_name.dart';
 
 class MoreBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blue.withOpacity(0.08),
       appBar: AppBar(
         title: Text(
           "Geun's Shoes👟",
@@ -28,18 +33,28 @@ class MoreBody extends StatelessWidget {
                     name: "Jordan1 \nDarkmocha",
                     brand: "nike",
                     price: 44.0,
+                    press: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => Jordan1(),
+                        ),
+                      );
+                    },
                   ),
                   PictureAndInfo(
                     image: "assets/images/dunkLow_black.png",
                     name: "Dunk Low\nBlack",
                     brand: "nike",
                     price: 50.0,
+                    press: () {},
                   ),
                   PictureAndInfo(
                     image: "assets/images/pimaone_force.png",
                     name: "Air Force 1 Low\nPara-Noise 2.0",
                     brand: "nike",
                     price: 55.0,
+                    press: () {},
                   )
                 ],
               ),
